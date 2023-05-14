@@ -20,8 +20,13 @@ Requirements for project :
 
 *Ensure the application meets professional-quality standards.
 
+
+
 JWT Authentication Used.
+
 Database used = Posgresql
+
 APIs Tested on Postman
+
 
 Thank You!
