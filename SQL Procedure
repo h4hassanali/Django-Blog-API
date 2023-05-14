@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE get_all_posts()
+AS $$
+DECLARE
+    result_set RECORD;
+BEGIN
+    FOR result_set IN
+        SELECT p.title, p.body, p.created, p.hashtags, u.username, u.email, u.date_joined
+        FROM posts_post AS p
+        JOIN auth_user AS u ON p.user_id = u.id
+    LOOP
+        RAISE NOTICE 'Title: %, Body: %, Created: %, Hashtags: %, Username: %, Email: %, Date Joined: %',
+            result_set.title, result_set.body, result_set.created, result_set.hashtags,
+            result_set.username, result_set.email, result_set.date_joined;
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
