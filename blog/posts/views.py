@@ -83,13 +83,7 @@ class PostDetailAPIView(APIView):
 class UserPostAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    # def get(self, request, username, *args, **kwargs):
-    #     user = User.objects.filter(username = username).first()
-    #     if user is None:
-    #         return Response({'error': 'User not found'}, status = status.HTTP_404_NOT_FOUND)
-    #     posts = Post.objects.filter(user = user)
-    #     serializer = PostSerializer(posts, many = True)
-    #     return Response(serializer.data, status = status.HTTP_200_OK)
+   
     def get(self, request, username, *args, **kwargs):
         user = User.objects.filter(username=username).first()
         if user is None:
